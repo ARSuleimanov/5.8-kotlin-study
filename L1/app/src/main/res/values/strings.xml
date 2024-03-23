@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">L1</string>
     <string name="pin_hint">Введите код</string>
+    <string name="congratulation_msg">Congratulation! The pin is correct :)</string>
 </resources>
