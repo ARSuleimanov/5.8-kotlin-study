@@ -6,4 +6,19 @@
     </style>
 
     <style name="Theme.L1" parent="Base.Theme.L1" />
+
+    <style name="pin_btn" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@color/color_primary</item>
+        <item name="android:background">@drawable/bg_btn</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">22sp</item>
+
+    </style>
+
+    <style name="PinText" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">20sp</item>
+        <item name="hintTextColor">@color/hint</item>
+        <!--        <item name="android:textStyle">bold</item>-->
+    </style>
 </resources>

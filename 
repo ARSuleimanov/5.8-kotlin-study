@@ -1,0 +1,16 @@
+create pin layout
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Sat Mar 23 17:30:03 2024 +0400
+#
+# On branch homework_7_5
+# Changes to be committed:
+#	modified:   L1/.idea/deploymentTargetDropDown.xml
+#	modified:   L1/app/src/main/res/drawable/bg_btn.xml
+#	modified:   L1/app/src/main/res/layout/activity_main.xml
+#	modified:   L1/app/src/main/res/values/colors.xml
+#	modified:   L1/app/src/main/res/values/strings.xml
+#	modified:   L1/app/src/main/res/values/themes.xml
+#
