@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "ru.sar.l1"
-        minSdk = 21
+        minSdk = 17
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
