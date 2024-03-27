@@ -1,6 +1,7 @@
 package ru.sar.l1
 
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,16 +10,20 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.core.widget.addTextChangedListener
+
 
 const val CORRECT_PIN = "1567"
+const val KEY_PIN = "PinCode"
+const val KEY_COLOR = "Color"
 
+// hw8 when the user will press OK button - the pin code will be saved
 class MainActivity : AppCompatActivity() {
 
     private lateinit var pinView: TextView
-    private var colorError:Int = Color.BLACK
-    private var colorPrimary:Int = Color.BLACK
-
+    private var colorError: Int = Color.BLACK
+    private var colorPrimary: Int = Color.BLACK
+    private var savedPin = ""
+    private var savedColor = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -29,16 +34,34 @@ class MainActivity : AppCompatActivity() {
         initDelBtn()
         initOkBtn()
 
+        getInstanceForm(savedInstanceState)
 
     }
 
+    private fun getInstanceForm(savedInstanceState: Bundle?) {
+        savedInstanceState?.getString(KEY_PIN)?.let { t -> savedPin = t }
+        savedInstanceState?.getInt(KEY_COLOR)?.let { sk -> savedColor = sk }
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (savedColor != 0) {
+            pinView.setTextColor(savedColor)
+        }
+        if (savedPin != "") {
+            pinView.text = savedPin
+        }
+    }
+
     private fun initColors() {
-        colorError= ContextCompat.getColor(this, R.color.error)
-        colorPrimary= ContextCompat.getColor(this, R.color.color_primary)
+        colorError = ContextCompat.getColor(this, R.color.error)
+        colorPrimary = ContextCompat.getColor(this, R.color.color_primary)
     }
 
     private fun initPinView() {
         pinView = findViewById(R.id.tv_pin)
+
     }
 
     private fun initOkBtn() {
@@ -46,21 +69,36 @@ class MainActivity : AppCompatActivity() {
             if (pinView.text.toString() == CORRECT_PIN) {
                 Toast.makeText(this, getString(R.string.congratulation_msg), Toast.LENGTH_SHORT)
                     .show()
-            } else pinView.setTextColor(colorError)
+                val tr = Intent(this@MainActivity, MainActivity2::class.java)
+                startActivity(tr)
+
+            } else {
+                pinView.setTextColor(colorError)
+                savedPin = pinView.text.toString()
+                savedColor = colorError
+            }
 
 
         }
 
-        findViewById<TextView>(R.id.tv_pin).addTextChangedListener {
-            pinView.setTextColor(colorPrimary)
-        }
+//        findViewById<TextView>(R.id.tv_pin).addTextChangedListener {
+//            pinView.setTextColor(colorPrimary)
+//            Log.d("test", "addTextChangedListener")
+//        }
     }
 
     private fun initDelBtn() {
         findViewById<Button>(R.id.btn_del).setOnClickListener {
             pinView.text = pinView.text.dropLast(1)
+            pinView.setTextColor(colorPrimary)
 
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(KEY_PIN, savedPin)
+        outState.putInt(KEY_COLOR, savedColor)
     }
 
     private fun initNumBtn() {
