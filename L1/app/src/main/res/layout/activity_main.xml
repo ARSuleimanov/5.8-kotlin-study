@@ -27,10 +27,16 @@
         в реальном приложении отображаться текст из этого тега не будет -->
 
         <Button
-            android:id="@+id/plusButton"
+            android:id="@+id/plusBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+1" />
+        <Button
+            android:id="@+id/resultBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Результат"
+            />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
