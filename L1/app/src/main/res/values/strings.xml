@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">L1</string>
     <string name="title_result">Ваш результат %1$d</string>
+
 </resources>
