@@ -1,36 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="User Information"
-        android:textAlignment="center"
-    />
+        android:textAlignment="center" />
+
     <TextView
         android:id="@+id/id"
         style="@style/userInfoText"
-        android:text="-No ID receipted"
-        />
+        android:text="-No ID receipted" />
+
     <TextView
         android:id="@+id/Name"
         style="@style/userInfoText"
-        android:text="-"
-        />
+        android:text="-" />
+
     <TextView
         android:id="@+id/BirthYear"
         style="@style/userInfoText"
-        android:text="-"
-        />
+        android:text="-" />
+
     <TextView
         android:id="@+id/Age"
         style="@style/userInfoText"
-        android:text="-"
-        />
+        android:text="-" />
 
-
-
+    <Button
+        android:id="@+id/Btn_userInfoActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Toast info about parcelable obj" />
 
 </LinearLayout>

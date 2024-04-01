@@ -2,42 +2,52 @@ package ru.sar.l1
 
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 
 
 import android.util.Log
 import android.widget.Button
 
+
 import androidx.appcompat.app.AppCompatActivity
 
 
-
-const val LOG_TAG = "activity"
-const val KEY_OBJ = "MyObject"
-
-class MainActivity : AppCompatActivity() {
-    //@Parcelize
+const val LOG_TAG = "SAR"
+const val KEY_OBJ_SER = "MyObject"
+const val KEY_OBJ_PARC = "MyObject_parc"
 
 
+class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
 
-    private val aleks: MyApplication.User = MyApplication.User(0, "Aleks", 1980)
+    private val aleks: MyApplication.UserSer = MyApplication.UserSer(0, "Aleks", 1980)
+    private val boris: MyApplication.UserSer = MyApplication.UserSer(1, "Boris", 1951)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+//        setContentView(R.layout.activity_main)
 
         Log.d(LOG_TAG, "onCreate")
+
         initBtn()
 
 
     }
 
     private fun initBtn() {
+        findViewById<Button>(R.id.Btn_url).setOnClickListener {
+            val u = Uri.parse("https://ya.ru")
+            val openLinkIntent=Intent(Intent.ACTION_VIEW, u)
+            startActivity(openLinkIntent)
+
+        }
         val btnUserInfo = findViewById<Button>(R.id.BtnUserInfo)
         btnUserInfo.setOnClickListener {
-            aleks.toast(this)
+//            aleks.toast(this)
+//            Toast.makeText(this, aleks.name, Toast.LENGTH_SHORT).show()
             val tr = Intent(this, UserInfoActivity::class.java)
-            tr.putExtra(KEY_OBJ, aleks)
+            tr.putExtra(KEY_OBJ_SER, aleks)               //sent the serializable object
+            tr.putExtra(KEY_OBJ_PARC,boris)               //sent the parcelable object
             startActivity(tr)
         }
     }
@@ -56,6 +66,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         Log.d(LOG_TAG, "onResume")
+        Log.d(LOG_TAG, "boris:$boris")
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
