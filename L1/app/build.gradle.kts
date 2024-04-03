@@ -1,6 +1,11 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+
+    /**Добавляем плагин
+     * для облечгения работы с
+     * parcelizeble классом**/
+    id("kotlin-parcelize")
 }
 
 android {

@@ -14,7 +14,9 @@ import androidx.appcompat.app.AppCompatActivity
 
 const val KEY_COUNTER = "count"
 const val EXTRA_COUNTER = "EXTRA_COUNTER"
-
+const val KEY_SERIALIZABLE="Key_serializable"
+const val KEY_PARCELIZABLE="Key_parcelizable"
+const val KEY_LOG="SAR"
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
     private var currentCounter = 0
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +44,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             val intent = Intent(this, ResultActivity::class.java)
             intent.putExtra(EXTRA_COUNTER, currentCounter)
 
+
+            intent.putExtra(KEY_SERIALIZABLE, TestClass("hello",123))
+            intent.putExtra(KEY_PARCELIZABLE,TestClassParcelable("hello-parcelable",555))
             resultActivityResult.launch(intent)
             //startActivity(intent)
 
