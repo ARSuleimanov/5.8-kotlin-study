@@ -6,4 +6,12 @@
     </style>
 
     <style name="Theme.L1" parent="Base.Theme.L1" />
+
+
+    <style name="BtnStyle">
+        <item name="android:textSize">28sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+
+    </style>
 </resources>

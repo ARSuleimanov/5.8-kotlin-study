@@ -49,10 +49,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             intent.putExtra(KEY_PARCELIZABLE,TestClassParcelable("hello-parcelable",555))
             resultActivityResult.launch(intent)
             //startActivity(intent)
-
         }
-
-
     }
 
 
