@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.findViewTreeViewModelStoreOwner
+import ru.sar.L1.ActivityInterface
 
 class MainFragment : Fragment(R.layout.fragment_main){
     private var counter = 0
@@ -42,6 +44,11 @@ class MainFragment : Fragment(R.layout.fragment_main){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d(TAG, "onViewCreated")
+
+        view.findViewById<Button>(R.id.BtnFunMainAct).setOnClickListener {
+            /* test function from mainActivity*/
+            (requireActivity() as ActivityInterface).test()
+        }
 
         val button=view.findViewById<Button>(R.id.button)
         textView=view.findViewById<TextView>(R.id.textView)

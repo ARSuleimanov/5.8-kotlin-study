@@ -20,6 +20,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Show result"/>
+    <Button
+        android:id="@+id/BtnFunMainAct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="call fun from main activity by interface"/>
+
 
 
 </LinearLayout>

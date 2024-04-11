@@ -5,18 +5,23 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.Toast
 
 
 import androidx.fragment.app.Fragment
+import ru.sar.L1.ActivityInterface
 
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class MainActivity : AppCompatActivity(R.layout.activity_main), ActivityInterface {
     override fun onBackPressed() {
         Log.d(TAG,"Back pressed-----")
+
         super.onBackPressed()
     }
 
-
-
+    /*the test function declared in the ActivityInterface*/
+    override fun test (){
+        Toast.makeText(this, "The main Activity fun test", Toast.LENGTH_LONG).show()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,5 +60,17 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
             transaction.commit()
         }
+
+        findViewById<Button>(R.id.BtnHide).setOnClickListener {
+        val fragment:Fragment = supportFragmentManager.findFragmentById(R.id.fragmentContainer) ?:return@setOnClickListener
+                                                            //В случае нулевого значения - выход из процедуры
+            supportFragmentManager.beginTransaction().hide(fragment).commit()
+
+        }
+        findViewById<Button>(R.id.BtnShow).setOnClickListener {
+            val fragment:Fragment =supportFragmentManager.findFragmentById(R.id.fragmentContainer) ?:return@setOnClickListener
+            supportFragmentManager.beginTransaction().show(fragment).commit()
+        }
+
     }
 }
