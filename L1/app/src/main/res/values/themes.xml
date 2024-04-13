@@ -6,4 +6,23 @@
     </style>
 
     <style name="Theme.L1" parent="Base.Theme.L1" />
+
+    <style name="TextButton">
+        <item name="android:textColor">#EC1D09</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:background">#AEEFE7</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:text">"sample"</item>
+
+    </style>
+
+    <style name="MenuButton">
+        <item name="android:textColor">#083BD3</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:background">#AEEFE7</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:text">"sample"</item>
+        <item name="android:layout_marginTop">20dp</item>
+
+    </style>
 </resources>

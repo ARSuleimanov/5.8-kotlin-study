@@ -6,13 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+<LinearLayout
+    android:id="@+id/textButtons"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/btnBack"
+        android:layout_width="10dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_weight="1"
+        android:text="Back"
+        style="@style/TextButton"/>
+    <TextView
+        android:id="@+id/btnForward"
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Forvard"
+        style="@style/TextButton" />
+</LinearLayout>
+    <LinearLayout
+                android:layout_width="1dp"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBack">
+        <fragment
+            android:id="@+id/TitleContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <fragment
+            android:id="@+id/NewsContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"/>
+
+    </LinearLayout>
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
