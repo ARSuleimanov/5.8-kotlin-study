@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TitleNews">
+    tools:context="ru.sar.l1.TitleNewsFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -15,13 +15,15 @@
             android:id="@+id/txtTitle1"
             style="@style/MenuButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="News first"/>
 
         <TextView
             android:id="@+id/txtTitle2"
             style="@style/MenuButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="News second"/>
 
         <TextView
             android:id="@+id/txtTitle3"

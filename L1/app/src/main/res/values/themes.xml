@@ -8,11 +8,13 @@
     <style name="Theme.L1" parent="Base.Theme.L1" />
 
     <style name="TextButton">
-        <item name="android:textColor">#EC1D09</item>
+        <item name="android:textColor">#010E3A</item>
         <item name="android:textSize">22sp</item>
-        <item name="android:background">#AEEFE7</item>
+        <item name="android:background">#13CEE8</item>
         <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:text">"sample"</item>
+        <item name="android:layout_margin">10dp</item>
 
     </style>
 
@@ -23,6 +25,25 @@
         <item name="android:textAlignment">center</item>
         <item name="android:text">"sample"</item>
         <item name="android:layout_marginTop">20dp</item>
+
+    </style>
+
+    <style name="Title">
+        <item name="android:textColor">#0D0E12</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:text">"Sample Title"</item>
+        <item name="android:layout_margin">10dp</item>
+
+    </style>
+    <style name="SimpleText">
+        <item name="android:textColor">#191A1E</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:text">"The sample of simple text\n on your device you can read this\nso many strings\nrows"</item>
+        <item name="android:layout_margin">10dp</item>
 
     </style>
 </resources>
