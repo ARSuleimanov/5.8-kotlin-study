@@ -12,14 +12,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        initFragments()
+        initBtn()
 
-        supportFragmentManager.beginTransaction().add(
-            R.id.TitleContainer, TitleNewsFragment(), "Title Fragment"
-        ).commit()
+    }
 
+    private fun initBtn(){
         findViewById<TextView>(R.id.btnBack).setOnClickListener {
             supportFragmentManager.popBackStack()
         }
+
         findViewById<TextView>(R.id.btnForward).setOnClickListener {
             if (NewsList.forwardStack.isNotEmpty()) {
                 supportFragmentManager
@@ -36,10 +38,15 @@ class MainActivity : AppCompatActivity() {
 
                 //TheNewsFragment.newInstance(NewsList.forwardStack.removeAt(NewsList.forwardStack.size - 1))
             } else {
-                Toast.makeText(this, "No pages in forward stack", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "No more pages in forward stack", Toast.LENGTH_SHORT).show()
             }
 
 
         }
+    }
+    private fun initFragments(){
+        supportFragmentManager.beginTransaction().add(
+            R.id.TitleContainer, TitleNewsFragment(), "Title Fragment"
+        ).commit()
     }
 }

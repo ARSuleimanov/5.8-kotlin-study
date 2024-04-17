@@ -2,11 +2,11 @@ package ru.sar.l1
 
 import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 
 
 const val TAG = "number"
@@ -16,12 +16,21 @@ class TheNewsFragment : Fragment() {
     private var idNews: Int? = null
     private var menuItemColorBefore = Color.BLACK
 
+    companion object {
+
+        @JvmStatic
+        fun newInstance(param: Int) = TheNewsFragment().apply {
+            arguments = Bundle().apply {
+                putInt(TAG, param)
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        /**
-         * memorize color of menu item in the TitleFragment
-         */
+
+        // memorize color of menu item from the TitleFragment
         arguments?.let {
             idNews = it.getInt(TAG)
             val fragment =
@@ -49,6 +58,13 @@ class TheNewsFragment : Fragment() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        val fragment =
+            parentFragmentManager.findFragmentByTag("Title Fragment") as? TitleNewsFragment
+        fragment?.highLightItem(idNews ?: return)
+    }
+
     override fun onStop() {
         super.onStop()
 
@@ -68,21 +84,4 @@ class TheNewsFragment : Fragment() {
     }
 
 
-    override fun onResume() {
-        super.onResume()
-        val fragment =
-            parentFragmentManager.findFragmentByTag("Title Fragment") as? TitleNewsFragment
-        fragment?.highLightItem(idNews ?: return)
-    }
-
-
-    companion object {
-
-        @JvmStatic
-        fun newInstance(param: Int) = TheNewsFragment().apply {
-            arguments = Bundle().apply {
-                putInt(TAG, param)
-            }
-        }
-    }
 }
